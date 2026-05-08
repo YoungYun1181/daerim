@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>대림번역사 - 중국어 전문 번역·통역·공증대행</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("Ym28a7KxisRW0PBSE"); 
+        })();
+    </script>
+    <style>
+        /* 부드러운 스크롤 효과 추가 */
+        html { scroll-behavior: smooth; }
+
+        /* 기존 스타일 유지 */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        li{list-style: none;}
+        body { font-family: 'Noto Sans KR', sans-serif; line-height: 1.6; color: #333; background-color: #f9f9f9; }
+        header { background: #fff; height: 80px; display: flex; justify-content: space-between; align-items: center; padding: 0 10%; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        
+        /* 로고 클릭 스타일 */
+        .logo a { 
+            font-size: 24px; font-weight: 700; color: #004680; text-decoration: none; 
+            cursor: pointer; transition: 0.3s;
+        }
+        .logo a:hover { opacity: 0.8; }
+
+        .nav-links { display: flex; }
+        .nav-links li { margin-left: 30px; }
+        .nav-links a { text-decoration: none; color: inherit; }
+        .nav-links a:hover { color: #004680; font-weight: bold; }
+
+        /* 히어로 섹션 */
+        .hero {
+            background: linear-gradient(rgba(0, 70, 128, 0.8), rgba(0, 70, 128, 0.8)), 
+                        url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+        }
+        .hero h1 { font-size: 48px; margin-bottom: 20px; }
+        .hero p { font-size: 20px; font-weight: 300; }
+
+        /* 서비스 섹션 */
+        .section { padding: 80px 10%; text-align: center; }
+        .section-title { font-size: 32px; margin-bottom: 50px; position: relative; padding-bottom: 15px; }
+        .section-title::after { content: ''; width: 50px; height: 3px; background: #004680; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
+        .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .service-card {
+            background: #fff; padding: 40px; border-radius: 10px;
+            transition: 0.3s; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .service-card:hover { transform: translateY(-10px); background: #004680; color: #fff; }
+        .service-card h3 { margin-bottom: 15px; }
+
+        .board-container { background: #fff; padding: 40px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); text-align: left; max-width: 800px; margin: 0 auto; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: bold; }
+        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: inherit; }
+
+        /* 파일 업로드 스타일 */
+        .form-group input[type="file"] { padding: 10px; background: #fdfdfd; border: 1px dashed #004680; }
+        .submit-btn { width: 100%; padding: 15px; background: #004680; color: #fff; border: none; border-radius: 5px; font-size: 18px; cursor: pointer; transition: 0.3s; }
+        .submit-btn:hover { background: #002d52; }
+        footer { background: #333; color: #ccc; padding: 40px 10%; text-align: center; font-size: 14px; margin-top: 50px; }
+    </style>
+</head>
+<body id="top"> <!-- 상단 이동을 위한 ID 추가 -->
+    <header>
+        <div class="logo">
+            <!-- 클릭 시 최상단(#top)으로 이동하도록 수정 -->
+            <a href="#top">대림번역사</a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">홈</a></li>
+            <li><a href="#services">주요업무</a></li>
+            <li><a href="#contact">문의하기</a></li>
+        </ul>
+    </header>
+
+    <section class="hero" id="home">
+        <h1>중국어 번역의 표준</h1>
+        <p>번역, 통역부터 전문 번역공증대행까지, 대림번역사가 함께합니다.</p>
+    </section>
+
+    <section class="section" id="services">
+        <h2 class="section-title">주요 업무</h2>
+        <div class="services">
+            <div class="service-card">
+                <h3>중국어 전문 번역</h3>
+                <p>계약서, 비즈니스 서신, 기술 문서 등 분야별 맞춤 번역 서비스를 제공합니다.</p>
+            </div>
+            <div class="service-card">
+                <h3>서울 수행 통역</h3>
+                <p>일상생활, 관광, 비즈니스 미팅 등 현장의 감각을 살린 전문 통역입니다.</p>
+            </div>
+            <div class="service-card">
+                <h3>중국어 번역공증 직접 진행</h3>
+                <p>기업 및 개인 서류의 번역공증, 아포스티유, 대사관 인증을 신속히 처리합니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="contact">
+        <h2 class="section-title">고객 문의 게시판</h2>
+        <div class="board-container">
+            <form id="inquiryForm">
+                <div class="form-group">
+                    <label>문의 유형</label>
+                    <select id="type" required>
+                        <option value="">선택하세요</option>
+                        <option value="중국어 번역">중국어 번역</option>
+                        <option value="통역 서비스">통역 서비스</option>
+                        <option value="번역공증대행">번역공증대행</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>성함/기업명</label>
+                    <input id="from_name" type="text" placeholder="성함을 입력해주세요" required>
+                </div>
+                <div class="form-group">
+                    <label>연락처</label>
+                    <input id="contact_number" type="tel" placeholder="010-0000-0000" required>
+                </div>
+                <div class="form-group">
+                    <label>문의 내용</label>
+                    <textarea id="message" rows="5" placeholder="문의 내용을 입력하세요"></textarea>
+                </div>
+                <!-- 첨부파일 파트 추가 -->
+                <div class="form-group">
+                    <label>첨부파일</label>
+                    <input type="file" id="file_attachment">
+                    <p style="font-size: 12px; color: #666; margin-top: 5px;">* 전송이 안되면 01024103670으로 문자 보내주세요</p>
+                </div>
+                <button type="submit" class="submit-btn">상담 신청하기</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 대림번역사. All Rights Reserved.</p>
+        <div class="footer-info">
+            주소: 서울특별시 영등포구 도림로 160, 701호 (명지성모병원 인근) | 대표번호: 010-2410-3670 | 이메일: cyy3670@naver.com
+        </div>
+    </footer>
+
+    <script type="text/javascript">
+        document.getElementById('inquiryForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const btn = this.querySelector('button');
+            const fileInput = document.getElementById('file_attachment');
+            
+            btn.innerText = '전송 중...';
+            btn.disabled = true;
+
+            // 파일을 Base64 데이터로 읽는 함수
+            const getBase64 = (file) => {
+                return new Promise((resolve, reject) => {
+                    const reader = new FileReader();
+                    reader.readAsDataURL(file);
+                    reader.onload = () => resolve(reader.result);
+                    reader.onerror = error => reject(error);
+                });
+            };
+
+            const sendEmail = async (fileData = null) => {
+                const templateParams = {
+                    type: document.getElementById('type').value,
+                    from_name: document.getElementById('from_name').value,
+                    contact_number: document.getElementById('contact_number').value,
+                    message: document.getElementById('message').value,
+                    my_file: fileData // 이메일 템플릿의 {{my_file}}에 대응
+                };
+
+                try {
+                    await emailjs.send('service_daerim', 'template_ymt7viz', templateParams);
+                    alert('문의 내용이 성공적으로 전송되었습니다! 감사합니다!');
+                    document.getElementById('inquiryForm').reset();
+                } catch (error) {
+                    alert('전송 실패: ' + JSON.stringify(error));
+                } finally {
+                    btn.innerText = '상담 신청하기';
+                    btn.disabled = false;
+                }
+            };
+
+            // 파일이 있으면 읽어서 보내고, 없으면 그냥 보냄
+            if (fileInput.files.length > 0) {
+                getBase64(fileInput.files[0]).then(data => {
+                    sendEmail(data);
+                }).catch(err => {
+                    alert("파일을 읽는 중 오류가 발생했습니다.");
+                    btn.disabled = false;
+                });
+            } else {
+                sendEmail();
+            }
+        });
+    </script>
+</body>
+</html>
