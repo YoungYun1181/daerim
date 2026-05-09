@@ -14,64 +14,189 @@
     <style>
         /* 부드러운 스크롤 효과 추가 */
         html { scroll-behavior: smooth; }
-
-        /* 기존 스타일 유지 */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        li{list-style: none;}
-        body { font-family: 'Noto Sans KR', sans-serif; line-height: 1.6; color: #333; background-color: #f9f9f9; }
-        header { background: #fff; height: 80px; display: flex; justify-content: space-between; align-items: center; padding: 0 10%; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         
-        /* 로고 클릭 스타일 */
-        .logo a { 
-            font-size: 24px; font-weight: 700; color: #004680; text-decoration: none; 
-            cursor: pointer; transition: 0.3s;
+        /* 화면 너비가 1023px 이상일 때 (데스크탑) */
+        @media (min-width: 1023px) {
+            * { margin: 0; padding: 0; box-sizing: border-box; }
+            li{list-style: none;}
+            body { font-family: 'Noto Sans KR', sans-serif; line-height: 1.6; color: #333; background-color: #f9f9f9; }
+            header { background: #fff; height: 80px; display: flex; justify-content: space-between; align-items: center; padding: 0 10%; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+            
+            /* 로고 클릭 스타일 */
+            .logo a { 
+                font-size: 24px; font-weight: 700; color: #004680; text-decoration: none; 
+                cursor: pointer; transition: 0.3s;
+            }
+            .logo a:hover { opacity: 0.8; }
+
+            .nav-links { display: flex; }
+            .nav-links li { margin-left: 30px; }
+            .nav-links a { text-decoration: none; color: inherit; }
+            .nav-links a:hover { color: #004680; font-weight: bold; }
+
+            /* 히어로 섹션 */
+            .hero {
+                background: linear-gradient(rgba(0, 70, 128, 0.8), rgba(0, 70, 128, 0.8)), 
+                            url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1350&q=80');
+                background-size: cover;
+                background-position: center;
+                height: 500px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                color: #fff;
+                text-align: center;
+            }
+            .hero h1 { font-size: 48px; margin-bottom: 20px; }
+            .hero p { font-size: 20px; font-weight: 300; }
+
+            /* 서비스 섹션 */
+            .section { padding: 80px 10%; text-align: center; }
+            .section-title { font-size: 32px; margin-bottom: 50px; position: relative; padding-bottom: 15px; }
+            .section-title::after { content: ''; width: 50px; height: 3px; background: #004680; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
+            .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+            .service-card {
+                background: #fff; padding: 40px; border-radius: 10px;
+                transition: 0.3s; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            }
+            .service-card:hover { transform: translateY(-10px); background: #004680; color: #fff; }
+            .service-card h3 { margin-bottom: 15px; }
+
+            .board-container { background: #fff; padding: 40px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); text-align: left; max-width: 800px; margin: 0 auto; }
+            .form-group { margin-bottom: 20px; }
+            .form-group label { display: block; margin-bottom: 8px; font-weight: bold; }
+            .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: inherit; }
+
+            /* 파일 업로드 스타일 */
+            .form-group input[type="file"] { padding: 10px; background: #fdfdfd; border: 1px dashed #004680; }
+            .submit-btn { width: 100%; padding: 15px; background: #004680; color: #fff; border: none; border-radius: 5px; font-size: 18px; cursor: pointer; transition: 0.3s; }
+            .submit-btn:hover { background: #002d52; }
+            footer { background: #333; color: #ccc; padding: 40px 10%; text-align: center; font-size: 14px; margin-top: 50px; }
+        }        
+
+        /* 화면 너비가 1024px 이하일 때 (태블릿) */
+        @media (max-width: 1024px) {
+           * { margin: 0; padding: 0; box-sizing: border-box; }
+            li{list-style: none;}
+            body { font-family: 'Noto Sans KR', sans-serif; line-height: 1.6; color: #333; background-color: #f9f9f9; }
+            header { background: #fff; height: 80px; display: flex; justify-content: space-between; align-items: center; padding: 0 10%; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+            
+            /* 로고 클릭 스타일 */
+            .logo a { 
+                font-size: 24px; font-weight: 700; color: #004680; text-decoration: none; 
+                cursor: pointer; transition: 0.3s;
+            }
+            .logo a:hover { opacity: 0.8; }
+
+            .nav-links { display: flex; }
+            .nav-links li { margin-left: 30px; }
+            .nav-links a { text-decoration: none; color: inherit; }
+            .nav-links a:hover { color: #004680; font-weight: bold; }
+
+            /* 히어로 섹션 */
+            .hero {
+                background: linear-gradient(rgba(0, 70, 128, 0.8), rgba(0, 70, 128, 0.8)), 
+                            url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1350&q=80');
+                background-size: cover;
+                background-position: center;
+                height: 500px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                color: #fff;
+                text-align: center;
+            }
+            .hero h1 { font-size: 48px; margin-bottom: 20px; }
+            .hero p { font-size: 20px; font-weight: 300; }
+
+            /* 서비스 섹션 */
+            .section { padding: 80px 10%; text-align: center; }
+            .section-title { font-size: 32px; margin-bottom: 50px; position: relative; padding-bottom: 15px; }
+            .section-title::after { content: ''; width: 50px; height: 3px; background: #004680; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
+            .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+            .service-card {
+                background: #fff; padding: 40px; border-radius: 10px;
+                transition: 0.3s; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            }
+            .service-card:hover { transform: translateY(-10px); background: #004680; color: #fff; }
+            .service-card h3 { margin-bottom: 15px; }
+
+            .board-container { background: #fff; padding: 40px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); text-align: left; max-width: 800px; margin: 0 auto; }
+            .form-group { margin-bottom: 20px; }
+            .form-group label { display: block; margin-bottom: 8px; font-weight: bold; }
+            .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: inherit; }
+
+            /* 파일 업로드 스타일 */
+            .form-group input[type="file"] { padding: 10px; background: #fdfdfd; border: 1px dashed #004680; }
+            .submit-btn { width: 100%; padding: 15px; background: #004680; color: #fff; border: none; border-radius: 5px; font-size: 18px; cursor: pointer; transition: 0.3s; }
+            .submit-btn:hover { background: #002d52; }
+            footer { background: #333; color: #ccc; padding: 40px 10%; text-align: center; font-size: 14px; margin-top: 50px; }
         }
-        .logo a:hover { opacity: 0.8; }
 
-        .nav-links { display: flex; }
-        .nav-links li { margin-left: 30px; }
-        .nav-links a { text-decoration: none; color: inherit; }
-        .nav-links a:hover { color: #004680; font-weight: bold; }
+        /* 화면 너비가 768px 이하일 때 (모바일) */
+        @media (max-width: 768px) {
+            * { margin: 0; padding: 0; box-sizing: border-box; }
+            li{list-style: none;}
+            body { font-family: 'Noto Sans KR', sans-serif; line-height: 1.6; color: #333; background-color: #f9f9f9; }
+            header { background: #fff; height: 80px; display: flex; justify-content: space-between; align-items: center; padding: 0 10%; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+            
+            /* 로고 클릭 스타일 */
+            .logo a { 
+                font-size: 24px; font-weight: 700; color: #004680; text-decoration: none; 
+                cursor: pointer; transition: 0.3s;
+            }
+            .logo a:hover { opacity: 0.8; }
 
-        /* 히어로 섹션 */
-        .hero {
-            background: linear-gradient(rgba(0, 70, 128, 0.8), rgba(0, 70, 128, 0.8)), 
-                        url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            height: 500px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: #fff;
-            text-align: center;
+            .nav-links { display: flex; }
+            .nav-links li { margin-left: 30px; }
+            .nav-links a { text-decoration: none; color: inherit; }
+            .nav-links a:hover { color: #004680; font-weight: bold; }
+
+            /* 히어로 섹션 */
+            .hero {
+                background: linear-gradient(rgba(0, 70, 128, 0.8), rgba(0, 70, 128, 0.8)), 
+                            url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1350&q=80');
+                background-size: cover;
+                background-position: center;
+                height: 300px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                color: #fff;
+                text-align: center;
+            }
+            .hero h1 { font-size: 48px; margin-bottom: 20px; }
+            .hero p { font-size: 20px; font-weight: 300; padding: 0 70px; }
+
+            /* 서비스 섹션 */
+            .section { padding: 80px 10%; text-align: center; }
+            .section-title { font-size: 32px; margin-bottom: 50px; position: relative; padding-bottom: 15px; }
+            .section-title::after { content: ''; width: 50px; height: 3px; background: #004680; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
+            .services { display: block; text-align: center;}
+            .service-card {
+                background: #fff; padding: 20px; margin: 20px 0; border-radius: 10px;
+                transition: 0.3s; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            }
+            .service-card:hover { transform: translateY(-10px); background: #004680; color: #fff; }
+            .service-card h3 { margin-bottom: 15px; }
+
+            .board-container { background: #fff; padding: 40px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); text-align: left; max-width: 800px; margin: 0 auto; }
+            .board-container input, #message{font-size:16px;}
+            .form-group { margin-bottom: 20px; }
+            .form-group label { display: block; margin-bottom: 8px; font-weight: bold; }
+            .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: inherit; }
+            #type option{font-size: 16px;}
+
+            /* 파일 업로드 스타일 */
+            .form-group input[type="file"] { padding: 10px; background: #fdfdfd; border: 1px dashed #004680; }
+            .submit-btn { width: 100%; padding: 15px; background: #004680; color: #fff; border: none; border-radius: 5px; font-size: 18px; cursor: pointer; transition: 0.3s; }
+            .submit-btn:hover { background: #002d52; }
+            footer { background: #333; color: #ccc; padding: 40px 10%; text-align: center; font-size: 14px; margin-top: 50px; }
         }
-        .hero h1 { font-size: 48px; margin-bottom: 20px; }
-        .hero p { font-size: 20px; font-weight: 300; }
-
-        /* 서비스 섹션 */
-        .section { padding: 80px 10%; text-align: center; }
-        .section-title { font-size: 32px; margin-bottom: 50px; position: relative; padding-bottom: 15px; }
-        .section-title::after { content: ''; width: 50px; height: 3px; background: #004680; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
-        .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-        .service-card {
-            background: #fff; padding: 40px; border-radius: 10px;
-            transition: 0.3s; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-        .service-card:hover { transform: translateY(-10px); background: #004680; color: #fff; }
-        .service-card h3 { margin-bottom: 15px; }
-
-        .board-container { background: #fff; padding: 40px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); text-align: left; max-width: 800px; margin: 0 auto; }
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; margin-bottom: 8px; font-weight: bold; }
-        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: inherit; }
-
-        /* 파일 업로드 스타일 */
-        .form-group input[type="file"] { padding: 10px; background: #fdfdfd; border: 1px dashed #004680; }
-        .submit-btn { width: 100%; padding: 15px; background: #004680; color: #fff; border: none; border-radius: 5px; font-size: 18px; cursor: pointer; transition: 0.3s; }
-        .submit-btn:hover { background: #002d52; }
-        footer { background: #333; color: #ccc; padding: 40px 10%; text-align: center; font-size: 14px; margin-top: 50px; }
+        
     </style>
 </head>
 <body id="top"> <!-- 상단 이동을 위한 ID 추가 -->
@@ -81,15 +206,15 @@
             <a href="#top">대림번역사</a>
         </div>
         <ul class="nav-links">
-            <li><a href="#home">홈</a></li>
+            <li><a href="#top">홈</a></li>
             <li><a href="#services">주요업무</a></li>
             <li><a href="#contact">문의하기</a></li>
         </ul>
     </header>
 
     <section class="hero" id="home">
-        <h1>중국어 번역의 표준</h1>
-        <p>번역, 통역부터 전문 번역공증대행까지, 대림번역사가 함께합니다.</p>
+        <h1>전문 중국어</h1>
+        <p>번역·통역, 전문 번역공증대행까지, 대림번역사가 함께합니다.</p>
     </section>
 
     <section class="section" id="services">
@@ -139,7 +264,7 @@
                 <div class="form-group">
                     <label>첨부파일</label>
                     <input type="file" id="file_attachment">
-                    <p style="font-size: 12px; color: #666; margin-top: 5px;">* 전송이 안되면 01024103670으로 문자 보내주세요</p>
+                    <p style="font-size: 15px; color: #666; margin-top: 5px;">* 전송이 안되면 01024103670으로 문자 보내주세요</p>
                 </div>
                 <button type="submit" class="submit-btn">상담 신청하기</button>
             </form>
